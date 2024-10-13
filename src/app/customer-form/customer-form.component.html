@@ -1,0 +1,31 @@
+<main class="main">
+  <div>
+
+    <h1>{{ isEditMode ? 'Editar Cliente' : 'Adicionar Cliente' }}</h1>
+    <form (ngSubmit)="onSubmit()">
+      <label for="nome">Nome</label>
+      <input id="nome" [(ngModel)]="customer.nome" name="nome" required />
+
+      <label for="email">Email</label>
+      <input id="email" [(ngModel)]="customer.email" name="email" required />
+
+      <label for="status">Status</label>
+      <select id="status" [(ngModel)]="customer.status" name="status">
+        <option value="ativo">Ativo</option>
+        <option value="inativo">Inativo</option>
+      </select>
+
+      <label for="tipoPessoa">Tipo de Pessoa</label>
+      <select id="tipoPessoa" [(ngModel)]="customer.tipoPessoa"
+        name="tipoPessoa">
+        <option value="junior">Junior</option>
+        <option value="pleno">Pleno</option>
+        <option value="senior">Senior</option>
+      </select>
+
+      <button type="submit">{{ isEditMode ? 'Salvar' : 'Criar' }}</button>
+    </form>
+
+    <button class="back-button" routerLink="/">Voltar</button>
+  </div>
+</main>

@@ -1,0 +1,31 @@
+<main class="main">
+  <div>
+    <h1>Lista de Clientes</h1>
+    <button routerLink="/create">Adicionar Novo Cliente</button>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Tipo de Pessoa</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.nome }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.status }}</td>
+          <td>{{ customer.tipoPessoa }}</td>
+          <td>
+            <button [routerLink]="['/edit', customer.id]">Editar</button>
+            <button (click)="onDeleteCustomer(customer.id!)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
